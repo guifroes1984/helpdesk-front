@@ -40,8 +40,8 @@ export class ClienteCreateComponent implements OnInit {
       this.toast.success('Cliente cadastrado com sucesso', 'Cadastro');
       this.router.navigate(['clientes'])
     }, ex => {
-      if (ex.error.errors) {
-        ex.error.errors.array.forEach(element => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
           this.toast.error(element.message);
         });
       } else {

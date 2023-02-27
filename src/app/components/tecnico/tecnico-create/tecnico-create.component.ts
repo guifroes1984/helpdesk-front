@@ -22,10 +22,10 @@ export class TecnicoCreateComponent implements OnInit {
     dataCriacao: ''
   }
 
-  nome: FormControl = new  FormControl(null, Validators.minLength(3));
-  cpf: FormControl = new       FormControl(null, Validators.required);
-  email: FormControl = new        FormControl(null, Validators.email);
-  senha: FormControl = new FormControl(null, Validators.minLength(3));
+  nome: FormControl =  new   FormControl(null, Validators.minLength(3));
+  cpf: FormControl =   new       FormControl(null, Validators.required);
+  email: FormControl = new          FormControl(null, Validators.email);
+  senha: FormControl = new   FormControl(null, Validators.minLength(3));
 
   constructor(
     private service: TecnicoService,
@@ -40,8 +40,8 @@ export class TecnicoCreateComponent implements OnInit {
       this.toast.success('Técnico cadastrado com sucesso', 'Cadastro');
       this.router.navigate(['tecnicos'])
     }, ex => {
-      if (ex.error.errors) {
-        ex.error.errors.array.forEach(element => {
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
           this.toast.error(element.message);
         });
       } else {
